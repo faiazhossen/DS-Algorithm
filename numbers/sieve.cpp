@@ -43,4 +43,5 @@ int main()
     {
         cout<<prime[i]<<"  ";
     }
+    return 0;
 }
