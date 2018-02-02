@@ -9,21 +9,22 @@ int mark[1000002];
 
 void sieve(int n)
 {
-    int i, j, limit = sqrt(n+1) +2;
+    int limit = sqrt(n+1) +2;
     mark[1] = 0;
 
-    for(i=4; i<=n; i+= 2)
+    for(int i=4; i<=n; i+= 2)
         mark[i] = 1;
     prime[nPrime++] = 2;
     for(int i=3; i<=n; i+=2)
     {
         if(!mark[i])
         {
-            if(i <= limit) {}
-            for(int j= i*i; j<=n; j+=i*2)
-            {
-                mark[j] = 1;
-            }
+            prime[nPrime++] = i;
+            if(i <= limit)
+                for(int j= i*i; j<=n; j+=i*2)
+                {
+                    mark[j] = 1;
+                }
         }
     }
 }
@@ -32,9 +33,14 @@ void sieve(int n)
 int main()
 {
     sieve(100);
-    for(int i=1 ;i<=100; i++){
-        if(mark[i] != 1){
-            cout<<i<<"  ";
-        }
+    /*  for(int i=1 ;i<=100; i++){
+          if(mark[i] != 1){
+              cout<<i<<"  ";
+          }
+      }*/
+
+    for (int i=0; i<nPrime; i++)
+    {
+        cout<<prime[i]<<"  ";
     }
 }
