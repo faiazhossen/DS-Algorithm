@@ -25,6 +25,7 @@ void mergeSort(int low, int high){
         num[k] = temp[k];
 }
 
+
 int main(){
     for(int i=0; i<=10; i++){
         num[i] = rand()%100 +1;
